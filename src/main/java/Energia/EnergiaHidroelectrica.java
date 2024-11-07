@@ -2,31 +2,32 @@ package Energia;
 
 
 public class EnergiaHidroelectrica extends Energia {
-    private double temperaturaSubterranea;
+    private double energiaHidroelectrica; // Renombrado para evitar confusión con el tipo
 
-    public Geotermica(String id, double potenciaMaxima, double temperaturaSubterranea) {
+    // Constructor
+    public EnergiaHidroelectrica(String id, double potenciaMaxima, double energiaHidroelectrica) {
         super(id, potenciaMaxima);
-        this.temperaturaSubterranea = temperaturaSubterranea;
+        this.energiaHidroelectrica = energiaHidroelectrica;
     }
 
-    // Getters y Setters
-    public double getTemperaturaSubterranea() {
-        return temperaturaSubterranea;
+    // Getter y Setter
+    public double getEnergiaHidroelectrica() {
+        return energiaHidroelectrica;
     }
 
-    public void setTemperaturaSubterranea(double temperaturaSubterranea) {
-        this.temperaturaSubterranea = temperaturaSubterranea;
+    public void setEnergiaHidroelectrica(double energiaHidroelectrica) {
+        this.energiaHidroelectrica = energiaHidroelectrica;
     }
 
+    // Método sobreescrito
     @Override
     public void verificarEstado() {
-        if (temperaturaSubterranea < 100) {
+        if (energiaHidroelectrica < 100) {
             setEnFuncionamiento(false);
-            System.out.println("La planta geotérmica " + getId() + " no tiene suficiente temperatura para operar.");
+            System.out.println("La planta hidroeléctrica " + getId() + " no tiene suficiente energía para operar.");
         } else {
             setEnFuncionamiento(true);
-            System.out.println("La planta geotérmica " + getId() + " está en funcionamiento.");
+            System.out.println("La planta hidroeléctrica " + getId() + " está en funcionamiento.");
         }
     }
 }
-
